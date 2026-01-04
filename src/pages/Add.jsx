@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { baseUrl } from '../api';
 export default function Add() {
   
   const navigate=useNavigate();
@@ -17,7 +18,7 @@ export default function Add() {
   const handleSubmit = async () => {
     //console.log(formData);
       setIsloading(true);
-      const res = await axios.post(`http://localhost:7000/api/expense/insert`, formData);
+      const res = await axios.post(`${baseUrl}/api/expense/insert`, formData);
     try {
      // console.log(res)
      if(res.data.success){
